@@ -1,0 +1,534 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     21798,        526]
+NotebookOptionsPosition[     19243,        489]
+NotebookOutlinePosition[     19586,        504]
+CellTagsIndexPosition[     19543,        501]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"**", "Input"}], " ", "identifying", " ", "information"}], 
+  "***)"}]], "Input",
+ CellChangeTimes->{{3.900430136391691*^9, 3.90043014553364*^9}, {
+  3.9004302721335874`*^9, 
+  3.900430275295783*^9}},ExpressionUUID->"a97f1a2d-ffe4-48e0-88c0-\
+0d251f3d8057"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"projType", "=", 
+   RowBox[{"ToString", "[", 
+    RowBox[{"Evaluate", "[", 
+     RowBox[{
+     "Input", "[", 
+      "\"\<Input the projection type (i.e V1toPM, LMtoPM, or LPtoPM)\>\"", 
+      "]"}], "]"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.873384676149476*^9, 3.873384687247753*^9}, {
+  3.873452449234067*^9, 3.873452450246426*^9}, {3.8734582941342106`*^9, 
+  3.8734582946872935`*^9}, {3.873472084829915*^9, 3.873472085471615*^9}, {
+  3.874322589976693*^9, 3.874322590742138*^9}, {3.874324606115991*^9, 
+  3.8743246067114773`*^9}, {3.890122347984707*^9, 3.890122348661945*^9}, {
+  3.890320463178583*^9, 3.8903204637098*^9}, {3.8928089790322413`*^9, 
+  3.8928089804024663`*^9}, {3.8928175611979017`*^9, 3.8928175617212267`*^9}, {
+  3.892817744063405*^9, 3.8928177446935444`*^9}, {3.892997273103766*^9, 
+  3.892997273724224*^9}, {3.9004298848736105`*^9, 
+  3.900429920984933*^9}},ExpressionUUID->"99eac15c-8d2f-4061-a500-\
+a1148f8a73c8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mouse", "=", 
+   RowBox[{"ToString", "[", 
+    RowBox[{"Evaluate", "[", 
+     RowBox[{
+     "Input", "[", "\"\<Input the mouse identity (e.g. Mouse123)\>\"", "]"}], 
+     "]"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.873384688672233*^9, 3.873384694696573*^9}, {
+   3.8734524520340786`*^9, 3.873452454158949*^9}, {3.8734582987801404`*^9, 
+   3.8734583005741453`*^9}, {3.873472089978421*^9, 3.8734720929681587`*^9}, {
+   3.8734721650035625`*^9, 3.8734721653047705`*^9}, {3.874317300911048*^9, 
+   3.87431730147344*^9}, {3.874322637046374*^9, 3.8743226375146847`*^9}, {
+   3.874324608758112*^9, 3.87432460930463*^9}, {3.8898017240579433`*^9, 
+   3.8898017273444495`*^9}, {3.8901223514001703`*^9, 
+   3.8901223526214952`*^9}, {3.890320466338187*^9, 3.890320467182912*^9}, {
+   3.8928089862858596`*^9, 3.8928089901070256`*^9}, {3.892817565090864*^9, 
+   3.8928175655845757`*^9}, {3.8928177471140566`*^9, 
+   3.8928177477442684`*^9}, {3.892997275739566*^9, 3.8929972762911825`*^9}, 
+   3.9004299363847127`*^9},ExpressionUUID->"0d78c2c5-a81d-466f-81ef-\
+e52bcbcf56a1"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"firstSection", "=", 
+   RowBox[{"ToString", "[", 
+    RowBox[{"Evaluate", "[", 
+     RowBox[{
+     "Input", "[", 
+      "\"\<Input the number of the first histological section in the series\>\
+\"", "]"}], "]"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.9004299586446505`*^9, 
+  3.9004299902460227`*^9}},ExpressionUUID->"9689387c-6fdc-4469-b078-\
+f06ce7340cfa"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"lastSection", "=", 
+   RowBox[{"ToString", "[", 
+    RowBox[{"Evaluate", "[", 
+     RowBox[{
+     "Input", "[", 
+      "\"\<Input the number of the last histological section in the \
+series\>\"", "]"}], "]"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.900429992805329*^9, 
+  3.9004300046197634`*^9}},ExpressionUUID->"e135ebad-a3cc-4b5e-9a20-\
+8ec6b0cefacf"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sectRange", "=", 
+   RowBox[{"Range", "[", 
+    RowBox[{"firstSection", ",", "lastSection"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.873384780424779*^9, 3.8733848099274187`*^9}, {
+   3.873452461503996*^9, 3.873452463183118*^9}, {3.8734583066524615`*^9, 
+   3.8734583093080883`*^9}, {3.873472095468048*^9, 3.873472099749555*^9}, {
+   3.874317307126171*^9, 3.8743173107971854`*^9}, {3.8743226411230335`*^9, 
+   3.8743226642246985`*^9}, {3.87432461172616*^9, 3.8743246147722173`*^9}, {
+   3.8898017109264245`*^9, 3.8898017155117826`*^9}, {3.890122343507132*^9, 
+   3.8901223454932795`*^9}, 3.8901224899220705`*^9, {3.8903204690845327`*^9, 
+   3.8903204705428224`*^9}, 3.8928089967170167`*^9, {3.8928175681463356`*^9, 
+   3.892817568472762*^9}, 3.8928177517708426`*^9, {3.892997280347062*^9, 
+   3.8929972811646013`*^9}, {3.90043001267262*^9, 
+   3.9004300200909123`*^9}},ExpressionUUID->"a7f2cb4d-0500-4238-816f-\
+a6a3eb9a8bc9"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+  "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**", "**",
+    "**", "**", "**", "**", "**", "**"}], "*****)"}]], "Input",
+ CellChangeTimes->{{3.9004899680648985`*^9, 
+  3.900489970482964*^9}},ExpressionUUID->"5a3a9fd1-e3f4-4f23-81e0-\
+651d72edaf71"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"laminarFluorPerSection", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Join", "[", 
+      RowBox[{
+       RowBox[{"Drop", "[", 
+        RowBox[{
+         RowBox[{"Flatten", "[", 
+          RowBox[{
+           RowBox[{"Import", "[", 
+            RowBox[{"StringJoin", "[", 
+             RowBox[{
+             "\"\<S:/Imaging/Garrett/BCMM_EpifluorConfocScope/Other/\
+LaminarAxonFluorescenceHistology/\>\"", ",", "projType", ",", "\"\</\>\"", 
+              ",", "mouse", ",", "\"\</LaminarFluorData/\>\"", ",", "mouse", 
+              ",", "\"\<_Section\>\"", ",", 
+              RowBox[{"ToString", "[", 
+               RowBox[{"sectRange", "[", 
+                RowBox[{"[", "n", "]"}], "]"}], "]"}], ",", 
+              "\"\<_Upper.xlsx\>\""}], "]"}], "]"}], ",", "1"}], "]"}], ",", 
+         "2"}], "]"}], ",", 
+       RowBox[{"Partition", "[", 
+        RowBox[{
+         RowBox[{"Riffle", "[", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Drop", "[", 
+               RowBox[{
+                RowBox[{"Flatten", "[", 
+                 RowBox[{
+                  RowBox[{"Import", "[", 
+                   RowBox[{"StringJoin", "[", 
+                    RowBox[{
+                    "\"\<S:/Imaging/Garrett/BCMM_EpifluorConfocScope/Other/\
+LaminarAxonFluorescenceHistology/\>\"", ",", "projType", ",", "\"\</\>\"", 
+                    ",", "mouse", ",", "\"\</LaminarFluorData/\>\"", ",", 
+                    "mouse", ",", "\"\<_Section\>\"", ",", 
+                    RowBox[{"ToString", "[", 
+                    RowBox[{"sectRange", "[", 
+                    RowBox[{"[", "n", "]"}], "]"}], "]"}], ",", 
+                    "\"\<_Lower.xlsx\>\""}], "]"}], "]"}], ",", "1"}], "]"}], 
+                ",", "2"}], "]"}], "[", 
+              RowBox[{"[", 
+               RowBox[{"All", ",", "1"}], "]"}], "]"}], "+", 
+             RowBox[{"Last", "[", 
+              RowBox[{
+               RowBox[{"Drop", "[", 
+                RowBox[{
+                 RowBox[{"Flatten", "[", 
+                  RowBox[{
+                   RowBox[{"Import", "[", 
+                    RowBox[{"StringJoin", "[", 
+                    RowBox[{
+                    "\"\<S:/Imaging/Garrett/BCMM_EpifluorConfocScope/Other/\
+LaminarAxonFluorescenceHistology/\>\"", ",", "projType", ",", "\"\</\>\"", 
+                    ",", "mouse", ",", "\"\</LaminarFluorData/\>\"", ",", 
+                    "mouse", ",", "\"\<_Section\>\"", ",", 
+                    RowBox[{"ToString", "[", 
+                    RowBox[{"sectRange", "[", 
+                    RowBox[{"[", "n", "]"}], "]"}], "]"}], ",", 
+                    "\"\<_Upper.xlsx\>\""}], "]"}], "]"}], ",", "1"}], "]"}], 
+                 ",", "2"}], "]"}], "[", 
+               RowBox[{"[", 
+                RowBox[{"All", ",", "1"}], "]"}], "]"}], "]"}]}], ")"}], ",", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"Drop", "[", 
+              RowBox[{
+               RowBox[{"Flatten", "[", 
+                RowBox[{
+                 RowBox[{"Import", "[", 
+                  RowBox[{"StringJoin", "[", 
+                   RowBox[{
+                   "\"\<S:/Imaging/Garrett/BCMM_EpifluorConfocScope/Other/\
+LaminarAxonFluorescenceHistology/\>\"", ",", "projType", ",", "\"\</\>\"", 
+                    ",", "mouse", ",", "\"\</LaminarFluorData/\>\"", ",", 
+                    "mouse", ",", "\"\<_Section\>\"", ",", 
+                    RowBox[{"ToString", "[", 
+                    RowBox[{"sectRange", "[", 
+                    RowBox[{"[", "n", "]"}], "]"}], "]"}], ",", 
+                    "\"\<_Lower.xlsx\>\""}], "]"}], "]"}], ",", "1"}], "]"}], 
+               ",", "2"}], "]"}], "[", 
+             RowBox[{"[", 
+              RowBox[{"All", ",", "2"}], "]"}], "]"}], ")"}]}], "]"}], ",", 
+         "2"}], "]"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"n", ",", "1", ",", 
+       RowBox[{"Length", "[", "sectRange", "]"}]}], "}"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.873385495696659*^9, 3.8733855154521613`*^9}, {
+  3.8733856278967977`*^9, 3.8733856853094034`*^9}, {3.8734524110813026`*^9, 
+  3.8734524377652245`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"4c4c8e13-9b40-4f28-a768-25d200e34395"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"resol", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Last", "[", 
+       RowBox[{
+        RowBox[{"laminarFluorPerSection", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "[", 
+        RowBox[{"[", 
+         RowBox[{"All", ",", "1"}], "]"}], "]"}], "]"}], "-", 
+      RowBox[{"First", "[", 
+       RowBox[{
+        RowBox[{"laminarFluorPerSection", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "[", 
+        RowBox[{"[", 
+         RowBox[{"All", ",", "1"}], "]"}], "]"}], "]"}]}], ")"}], "/", 
+    RowBox[{"Length", "[", 
+     RowBox[{
+      RowBox[{"laminarFluorPerSection", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{"All", ",", "1"}], "]"}], "]"}], "]"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8733862761301684`*^9, 3.8733863618819923`*^9}, {
+   3.873386421441121*^9, 3.873386423203168*^9}, {3.873386476074308*^9, 
+   3.8733864780990095`*^9}, 3.873386568176608*^9},
+ CellLabel->"In[5]:=",ExpressionUUID->"ec372eec-5013-4738-98f0-06cacec5a6a6"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"**", "Median"}], "-", 
+   RowBox[{"smooth", " ", "at", " ", "10", " ", "um"}]}], "***)"}]], "Input",
+ CellChangeTimes->{{3.873388110535191*^9, 3.8733881167738924`*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"08d3b181-6974-43cf-b030-2643a59ccdbb"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"window", "=", 
+   RowBox[{"Round", "[", 
+    RowBox[{"10", "/", "resol"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8733865701603756`*^9, 3.873386578931148*^9}, {
+  3.87338673090302*^9, 3.873386731051963*^9}, {3.873388049711494*^9, 
+  3.8733880548225975`*^9}, {3.873388087064682*^9, 3.873388087748537*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"ec6b74cf-ef2e-4a35-a5d5-8211016561b4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"medianSmoothedPerSection", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Partition", "[", 
+      RowBox[{
+       RowBox[{"Riffle", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"laminarFluorPerSection", "[", 
+            RowBox[{"[", "n", "]"}], "]"}], ")"}], "[", 
+          RowBox[{"[", 
+           RowBox[{"All", ",", "1"}], "]"}], "]"}], ",", 
+         RowBox[{"MovingMap", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Quantile", "[", 
+             RowBox[{"#", ",", 
+              RowBox[{"1", "/", "2"}]}], "]"}], "&"}], ",", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"laminarFluorPerSection", "[", 
+              RowBox[{"[", "n", "]"}], "]"}], ")"}], "[", 
+            RowBox[{"[", 
+             RowBox[{"All", ",", "2"}], "]"}], "]"}], ",", "window", ",", 
+           "\"\<Reflected\>\""}], "]"}]}], "]"}], ",", "2"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"n", ",", "1", ",", 
+       RowBox[{"Length", "[", "sectRange", "]"}]}], "}"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.8733865956526327`*^9, 3.8733866772273707`*^9}, {
+  3.8733873310128365`*^9, 3.873387381971053*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"6bbd1751-09d4-41c2-9ba5-7dc56c544143"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"**", "Check"}], " ", "that", " ", "all", " ", "sections", " ", 
+   "go", " ", "up", " ", "to", " ", "at", " ", "least", " ", "800", " ", 
+   "um"}], "***)"}]], "Input",
+ CellChangeTimes->{{3.873387766137972*^9, 3.8733877896946664`*^9}, {
+  3.9004300744313335`*^9, 
+  3.9004300758114834`*^9}},ExpressionUUID->"ccdef8db-b63b-40fd-a2dd-\
+c940996dd945"],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"ListLinePlot", "[", 
+    RowBox[{
+     RowBox[{"medianSmoothedPerSection", "[", 
+      RowBox[{"[", "n", "]"}], "]"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", 
+     RowBox[{"Length", "[", "sectRange", "]"}], ",", "1"}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.8733877930191736`*^9, 3.8733878219214*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"a12bb802-1c33-4181-b4b1-51608bdf2dad"],
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"Last", "[", 
+    RowBox[{
+     RowBox[{"medianSmoothedPerSection", "[", 
+      RowBox[{"[", "n", "]"}], "]"}], "[", 
+     RowBox[{"[", 
+      RowBox[{"All", ",", "1"}], "]"}], "]"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", 
+     RowBox[{"Length", "[", "sectRange", "]"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.873388198514757*^9, 3.8733882404864917`*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"f0c2a8bd-949e-4f1f-8542-c4df47034c4c"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"**", 
+   RowBox[{
+   "*", "Truncate", " ", "all", " ", "lists", " ", "at", " ", "800", " ", 
+    "um"}]}], "***)"}]], "Input",
+ CellChangeTimes->{{3.873387959865483*^9, 3.873387972878154*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"1dcd31cb-82fe-4289-9f25-6d85284ac7fc"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"truncPoint", "=", 
+   RowBox[{"Round", "[", 
+    RowBox[{"800", "/", "resol"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8733879852264824`*^9, 3.8733879903638525`*^9}, {
+  3.87338809723659*^9, 3.8733881198920455`*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"52d86f24-5c11-444b-985e-833e831ed7da"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"medianSmoothedPerSectionTrunc", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Take", "[", 
+      RowBox[{
+       RowBox[{"medianSmoothedPerSection", "[", 
+        RowBox[{"[", "n", "]"}], "]"}], ",", "truncPoint"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"n", ",", "1", ",", 
+       RowBox[{"Length", "[", "sectRange", "]"}]}], "}"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.8733879786514726`*^9, 3.8733879793884363`*^9}, {
+  3.8733882722944164`*^9, 3.873388324100767*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"87ff7196-bbaa-4820-a48d-55d046529068"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"**", "Normalize"}], " ", "all", " ", "lists", " ", "to", " ", 
+   "max", " ", "fluorescence"}], "***)"}]], "Input",
+ CellChangeTimes->{{3.873388353917036*^9, 3.873388365014084*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"35114a59-79bd-49d3-9c1e-5eee9e2817ba"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"maxFluor", "=", 
+   RowBox[{"Max", "[", 
+    RowBox[{"Flatten", "[", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"medianSmoothedPerSectionTrunc", "[", 
+         RowBox[{"[", "n", "]"}], "]"}], "[", 
+        RowBox[{"[", 
+         RowBox[{"All", ",", "2"}], "]"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"n", ",", "1", ",", 
+         RowBox[{"Length", "[", "sectRange", "]"}]}], "}"}]}], "]"}], "]"}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8733883681142483`*^9, 3.8733883714366903`*^9}, {
+  3.8734526493776383`*^9, 3.873452650863325*^9}},
+ CellLabel->"In[16]:=",ExpressionUUID->"bae268d5-745c-464e-9db0-e13d039c167e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"medianSmoothedPerSectionTruncNorm", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Partition", "[", 
+      RowBox[{
+       RowBox[{"Riffle", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"medianSmoothedPerSectionTrunc", "[", 
+           RowBox[{"[", "n", "]"}], "]"}], "[", 
+          RowBox[{"[", 
+           RowBox[{"All", ",", "1"}], "]"}], "]"}], ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"medianSmoothedPerSectionTrunc", "[", 
+            RowBox[{"[", "n", "]"}], "]"}], "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", "2"}], "]"}], "]"}], "/", "maxFluor"}]}], 
+        "]"}], ",", "2"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"n", ",", "1", ",", 
+       RowBox[{"Length", "[", "sectRange", "]"}]}], "}"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.8734526827726707`*^9, 3.87345277783694*^9}},
+ CellLabel->"In[17]:=",ExpressionUUID->"5b092634-65d4-4652-9f04-6a91fff4b1fb"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"**", "Calculate"}], " ", "the", " ", "mean", " ", "laminar", " ", 
+   "fluorescence", " ", "profile", " ", "for", " ", "this", " ", "animal", 
+   " ", "and", " ", "export", " ", "data"}], "***)"}]], "Input",
+ CellChangeTimes->{{3.873452837818636*^9, 3.8734528560167675`*^9}},
+ CellLabel->"In[19]:=",ExpressionUUID->"6927b845-c7cd-4fd5-9502-c5f237bdb204"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"meanFluorProfile", "=", 
+   RowBox[{"Mean", "[", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"medianSmoothedPerSectionTruncNorm", "[", 
+       RowBox[{"[", "n", "]"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"n", ",", "1", ",", 
+        RowBox[{"Length", "[", "sectRange", "]"}]}], "}"}]}], "]"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.873452863068604*^9, 3.8734529204555683`*^9}},
+ CellLabel->"In[20]:=",ExpressionUUID->"ccb09fea-16d7-4268-88be-ea52cbb045a3"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"**", "Export"}], " ", "laminar", " ", "profile", " ", "of", " ", 
+   "the", " ", "mean", " ", "normalized", " ", "axonal", " ", "fluorescence", 
+   " ", "from", " ", "this", " ", "animal"}], "***)"}]], "Input",
+ CellChangeTimes->{{3.9004302801243076`*^9, 
+  3.9004303216954203`*^9}},ExpressionUUID->"861eac5f-45c6-44ab-8d7e-\
+64c0aa4d64df"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+    RowBox[{"StringJoin", "[", 
+     RowBox[{
+     "\"\<S:/Imaging/Garrett/BCMM_EpifluorConfocScope/Other/\
+LaminarAxonFluorescenceHistology/\>\"", ",", "projType", ",", "\"\</\>\"", 
+      ",", "mouse", ",", "\"\</\>\"", ",", "mouse", ",", 
+      "\"\<_meanLaminarFluor.txt\>\""}], "]"}], ",", "meanFluorProfile"}], 
+   "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.8734534005720053`*^9, 3.8734534283737907`*^9}, {
+   3.873453458410057*^9, 3.8734534908313646`*^9}, 3.8734535271381598`*^9, 
+   3.873458289491605*^9},
+ CellLabel->"In[22]:=",ExpressionUUID->"925c77c8-5ffd-47e2-9123-36ba56b4f676"]
+},
+WindowSize->{759, 833},
+WindowMargins->{{Automatic, 202}, {82, Automatic}},
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 309, 8, 28, "Input",ExpressionUUID->"a97f1a2d-ffe4-48e0-88c0-0d251f3d8057"],
+Cell[870, 30, 984, 19, 48, "Input",ExpressionUUID->"99eac15c-8d2f-4061-a500-a1148f8a73c8"],
+Cell[1857, 51, 1105, 20, 28, "Input",ExpressionUUID->"0d78c2c5-a81d-466f-81ef-e52bcbcf56a1"],
+Cell[2965, 73, 402, 11, 67, "Input",ExpressionUUID->"9689387c-6fdc-4469-b078-f06ce7340cfa"],
+Cell[3370, 86, 398, 11, 67, "Input",ExpressionUUID->"e135ebad-a3cc-4b5e-9a20-8ec6b0cefacf"],
+Cell[3771, 99, 969, 16, 28, "Input",ExpressionUUID->"a7f2cb4d-0500-4238-816f-a6a3eb9a8bc9"],
+Cell[4743, 117, 312, 7, 28, "Input",ExpressionUUID->"5a3a9fd1-e3f4-4f23-81e0-651d72edaf71"],
+Cell[5058, 126, 4303, 96, 656, "Input",ExpressionUUID->"4c4c8e13-9b40-4f28-a768-25d200e34395"],
+Cell[9364, 224, 1051, 27, 86, "Input",ExpressionUUID->"ec372eec-5013-4738-98f0-06cacec5a6a6"],
+Cell[10418, 253, 299, 6, 28, "Input",ExpressionUUID->"08d3b181-6974-43cf-b030-2643a59ccdbb"],
+Cell[10720, 261, 426, 8, 28, "Input",ExpressionUUID->"ec6b74cf-ef2e-4a35-a5d5-8211016561b4"],
+Cell[11149, 271, 1316, 34, 86, "Input",ExpressionUUID->"6bbd1751-09d4-41c2-9ba5-7dc56c544143"],
+Cell[12468, 307, 402, 9, 28, "Input",ExpressionUUID->"ccdef8db-b63b-40fd-a2dd-c940996dd945"],
+Cell[12873, 318, 535, 13, 48, "Input",ExpressionUUID->"a12bb802-1c33-4181-b4b1-51608bdf2dad"],
+Cell[13411, 333, 529, 13, 28, "Input",ExpressionUUID->"f0c2a8bd-949e-4f1f-8542-c4df47034c4c"],
+Cell[13943, 348, 312, 7, 28, "Input",ExpressionUUID->"1dcd31cb-82fe-4289-9f25-6d85284ac7fc"],
+Cell[14258, 357, 339, 7, 28, "Input",ExpressionUUID->"52d86f24-5c11-444b-985e-833e831ed7da"],
+Cell[14600, 366, 620, 15, 48, "Input",ExpressionUUID->"87ff7196-bbaa-4820-a48d-55d046529068"],
+Cell[15223, 383, 313, 6, 28, "Input",ExpressionUUID->"35114a59-79bd-49d3-9c1e-5eee9e2817ba"],
+Cell[15539, 391, 709, 18, 67, "Input",ExpressionUUID->"bae268d5-745c-464e-9db0-e13d039c167e"],
+Cell[16251, 411, 991, 26, 86, "Input",ExpressionUUID->"5b092634-65d4-4652-9f04-6a91fff4b1fb"],
+Cell[17245, 439, 407, 7, 48, "Input",ExpressionUUID->"6927b845-c7cd-4fd5-9502-c5f237bdb204"],
+Cell[17655, 448, 528, 13, 48, "Input",ExpressionUUID->"ccb09fea-16d7-4268-88be-ea52cbb045a3"],
+Cell[18186, 463, 393, 8, 48, "Input",ExpressionUUID->"861eac5f-45c6-44ab-8d7e-64c0aa4d64df"],
+Cell[18582, 473, 657, 14, 86, "Input",ExpressionUUID->"925c77c8-5ffd-47e2-9123-36ba56b4f676"]
+}
+]
+*)
+
