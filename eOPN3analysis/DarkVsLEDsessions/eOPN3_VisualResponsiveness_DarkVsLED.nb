@@ -1,0 +1,457 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     20907,        449]
+NotebookOptionsPosition[     18728,        416]
+NotebookOutlinePosition[     19072,        431]
+CellTagsIndexPosition[     19029,        428]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"**", "Input"}], " ", "identifying", " ", "information"}], 
+  "***)"}]], "Input",
+ CellChangeTimes->{{3.765198963187563*^9, 3.765198980265934*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"61d12fd3-1fe9-4863-b29f-fad81a941d31"],
+
+Cell[BoxData[
+ RowBox[{"date", "=", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"Evaluate", "[", 
+    RowBox[{"Input", "[", "\"\<Input the date of the experiment\>\"", "]"}], 
+    "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.6913191896412325`*^9, 3.691319195885641*^9}, {
+   3.6914059717259026`*^9, 3.6914059718459845`*^9}, {3.69255159677219*^9, 
+   3.6925515975146713`*^9}, {3.692804333398162*^9, 3.692804334204711*^9}, {
+   3.6928965150465736`*^9, 3.6928965162566795`*^9}, {3.692898469763691*^9, 
+   3.6928984716538153`*^9}, {3.6930553567075143`*^9, 3.69305535726756*^9}, {
+   3.6944364041074743`*^9, 3.69443640637764*^9}, {3.6945285080446606`*^9, 
+   3.6945285097347894`*^9}, {3.694611812582182*^9, 3.694611816532484*^9}, {
+   3.694616761528776*^9, 3.6946167623688345`*^9}, {3.695466591974642*^9, 
+   3.6954665926946926`*^9}, {3.697910338485553*^9, 3.6979103406056843`*^9}, {
+   3.700059227505991*^9, 3.7000592283960514`*^9}, {3.700149158348305*^9, 
+   3.7001491593483477`*^9}, {3.700151376137068*^9, 3.700151377087159*^9}, {
+   3.700214541520537*^9, 3.700214545150789*^9}, {3.7002170840706296`*^9, 
+   3.7002170858707476`*^9}, {3.7024700120461674`*^9, 3.7024700398281107`*^9}, 
+   3.702470073840458*^9, {3.7024701567846284`*^9, 3.7024701775460787`*^9}, {
+   3.702470476696928*^9, 3.7024704816772757`*^9}, {3.7024706953721504`*^9, 
+   3.7024707055428715`*^9}, {3.7024712251590457`*^9, 3.7024712471106157`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"84f2c49a-8a6c-4328-a49d-883d3b9d454e"],
+
+Cell[BoxData[
+ RowBox[{"mouse", "=", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"Evaluate", "[", 
+    RowBox[{
+    "Input", "[", "\"\<Input the mouse identity (e.g. Mouse123)\>\"", "]"}], 
+    "]"}], "]"}]}]], "Input",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQBmIQLblo8eeFDa8dEz6d+gKiReROBJ0B0pe+ngbTV1hU
+5cqbXzveWdcNpq/fvqCwBEhrXPoJpl9qfVr/EUh/1J21AUQ7aQuxT2l77eii
+4wWmN8w5vPYlkDb/IL0ORO8Svyr+Bki38fFJgGg2zmCe7o7Xjklpk8D0rTl+
+Xia9rx1rlJLAdFE2d6/vxNeO7/Ylg2m2lqTSSiBt87UfTKuu/9tVBaTP8dh2
+g2i3V5uSZoLUu90C00KvObY8m/raUdepaDuIzpjBeghEa2W8PgKi/W8avgbR
+OcvzwLRG0CTW50D6O+8kDhC9fMMMbxDdaeviC6IBkuuj3g==
+  "],
+ CellLabel->"In[5]:=",ExpressionUUID->"c8df20e0-814b-4c8b-bcf6-5ea15b70997d"],
+
+Cell[BoxData[
+ RowBox[{"sessionNumBef", "=", 
+  RowBox[{"Evaluate", "[", 
+   RowBox[{
+   "Input", "[", "\"\<Input the session number before manipulation\>\"", 
+    "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7023966562147985`*^9, 3.7023966668955355`*^9}, {
+  3.765198074551258*^9, 3.765198115761479*^9}, {3.765198167446909*^9, 
+  3.7651981687055407`*^9}, {3.771764982124587*^9, 3.771764991051977*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"7f1c4157-1c47-44c8-a9a0-e2ef31423bfe"],
+
+Cell[BoxData[
+ RowBox[{"sessionNumAft", "=", 
+  RowBox[{"Evaluate", "[", 
+   RowBox[{
+   "Input", "[", "\"\<Input the session number after manipulation\>\"", "]"}],
+    "]"}]}]], "Input",
+ CellChangeTimes->{{3.7023966562147985`*^9, 3.7023966668955355`*^9}, {
+  3.765198074551258*^9, 3.765198115761479*^9}, {3.765198167446909*^9, 
+  3.7651981687055407`*^9}, {3.771764982124587*^9, 3.7717650213228064`*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"c921c00d-0675-4746-be72-8e38b4050e1f"],
+
+Cell[BoxData[
+ RowBox[{"discROIsQ", "=", 
+  RowBox[{"ToString", "[", 
+   RowBox[{"Evaluate", "[", 
+    RowBox[{"Input", "[", "\"\<Are there any non-useable ROIs?\>\"", "]"}], 
+    "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7754088588609805`*^9, 3.775408892755432*^9}, {
+  3.7754089299479437`*^9, 3.77540893526868*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"c69edd2f-1f6b-4b9e-88ff-ac2c97ecddb6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"numROIs", "=", 
+   RowBox[{"Length", "[", 
+    RowBox[{"FileNames", "[", 
+     RowBox[{"\"\<*\>\"", ",", 
+      RowBox[{"File", "[", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{
+        "\"\<S:/Imaging/Garrett/FMB208_2PRig/\>\"", ",", "date", ",", 
+         "\"\</\>\"", ",", "mouse", ",", "\"\</Session\>\"", ",", 
+         RowBox[{"ToString", "[", "sessionNumBef", "]"}], ",", 
+         "\"\</dFOverF0TimeSeries/\>\""}], "]"}], "]"}]}], "]"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.7653667607625957`*^9, 3.76536676290287*^9}, {
+   3.7653668000556946`*^9, 3.765366833295905*^9}, {3.771766452820897*^9, 
+   3.771766453099144*^9}, 3.8014750105410423`*^9, 3.8145280663685884`*^9, 
+   3.8478839256772213`*^9, 3.8532576244210854`*^9},
+ CellLabel->"In[9]:=",ExpressionUUID->"97e3bbac-073e-4f84-86d8-612554e819e9"],
+
+Cell[BoxData[
+ RowBox[{"If", "[", 
+  RowBox[{
+   RowBox[{"discROIsQ", "\[Equal]", "\"\<Yes\>\""}], ",", 
+   RowBox[{
+    RowBox[{"nonUseROIs", "=", 
+     RowBox[{"ToExpression", "[", 
+      RowBox[{"Import", "[", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{
+        "\"\<S:/Imaging/Garrett/FMB208_2PRig/\>\"", ",", "date", ",", 
+         "\"\</\>\"", ",", "mouse", ",", "\"\</Session\>\"", ",", 
+         RowBox[{"ToString", "[", "sessionNumAft", "]"}], ",", "\"\</\>\"", 
+         ",", "date", ",", "\"\<_\>\"", ",", "mouse", ",", "\"\<_Session\>\"",
+          ",", 
+         RowBox[{"ToString", "[", "sessionNumAft", "]"}], ",", 
+         "\"\<_nonUseableROIs.txt\>\""}], "]"}], "]"}], "]"}]}], ";"}], ",", 
+   RowBox[{
+    RowBox[{"nonUseROIs", "=", 
+     RowBox[{"{", "}"}]}], ";"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7754089920735083`*^9, 3.7754091150838375`*^9}, {
+   3.7754093676305437`*^9, 3.775409388811034*^9}, {3.775646262591477*^9, 
+   3.775646268808799*^9}, 3.8014750130731926`*^9, 3.8145280689361854`*^9, {
+   3.847809683140071*^9, 3.8478097129151564`*^9}, 3.8478839283331676`*^9, {
+   3.8478840212268543`*^9, 3.847884027920831*^9}, {3.847884099385892*^9, 
+   3.8478841004083557`*^9}, {3.8478841476586576`*^9, 3.8478841486243267`*^9}, 
+   3.8532576280937557`*^9},
+ CellLabel->"In[10]:=",ExpressionUUID->"92deb6ec-c98d-41b5-9fb2-36ae64dd1bc8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sigROIsBef", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"StringJoin", "[", 
+      RowBox[{
+      "\"\<S:/Imaging/Garrett/FMB208_2PRig/\>\"", ",", "date", ",", 
+       "\"\</\>\"", ",", "mouse", ",", "\"\</Session\>\"", ",", 
+       RowBox[{"ToString", "[", "sessionNumBef", "]"}], ",", 
+       "\"\</VisStimResults/\>\"", ",", "date", ",", "\"\<_\>\"", ",", 
+       "mouse", ",", "\"\<_Session\>\"", ",", 
+       RowBox[{"ToString", "[", "sessionNumBef", "]"}], ",", 
+       "\"\<_sigResponsiveROIs.txt\>\""}], "]"}], ",", "\"\<List\>\""}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7809379357670703`*^9, 3.7809379419755526`*^9}, {
+   3.780938028736704*^9, 3.7809380289059167`*^9}, {3.7812706878177376`*^9, 
+   3.7812707019808717`*^9}, {3.7812707338317213`*^9, 3.7812707669772625`*^9}, 
+   3.8014750156196456`*^9, 3.814528071335288*^9, 3.8478839309729567`*^9, 
+   3.8482300776804*^9, 3.849185001395137*^9, 3.851076483194073*^9, 
+   3.85325763055636*^9, {3.8532762504172554`*^9, 3.8532762568682375`*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"16cf77ff-fb2d-448b-8671-5db68928454c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sigROIsAft", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"StringJoin", "[", 
+      RowBox[{
+      "\"\<S:/Imaging/Garrett/FMB208_2PRig/\>\"", ",", "date", ",", 
+       "\"\</\>\"", ",", "mouse", ",", "\"\</Session\>\"", ",", 
+       RowBox[{"ToString", "[", "sessionNumAft", "]"}], ",", 
+       "\"\</VisStimResults/\>\"", ",", "date", ",", "\"\<_\>\"", ",", 
+       "mouse", ",", "\"\<_Session\>\"", ",", 
+       RowBox[{"ToString", "[", "sessionNumAft", "]"}], ",", 
+       "\"\<_sigResponsiveROIs.txt\>\""}], "]"}], ",", "\"\<List\>\""}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7812707826654587`*^9, 3.7812707944342737`*^9}, 
+   3.8014750188376894`*^9, 3.8145280744638014`*^9, 3.8478839332211647`*^9, 
+   3.848230082382244*^9, 3.8491850041386857`*^9, 3.8510764859210153`*^9, 
+   3.8532576337334194`*^9, 3.853276266180698*^9},
+ CellLabel->"In[12]:=",ExpressionUUID->"a3737ef4-e99b-498b-a7d7-3c804a8684d6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"sigRespROIs", "=", 
+    RowBox[{"DeleteCases", "[", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"MemberQ", "[", 
+            RowBox[{"sigROIsBef", ",", "n"}], "]"}], "||", 
+           RowBox[{"MemberQ", "[", 
+            RowBox[{"sigROIsAft", ",", "n"}], "]"}]}], ",", "n", ",", 
+          "Null"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"n", ",", "1", ",", "numROIs"}], "}"}]}], "]"}], ",", 
+      "Null"}], "]"}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"**", "An"}], " ", "ROI", " ", "is", " ", "significantly", " ", 
+    "responsive", " ", "it", " ", "was", " ", "significantly", " ", 
+    "responsive", " ", "during", " ", "the", " ", "before", " ", "session", 
+    " ", "OR", " ", "the", " ", "after", " ", "session"}], 
+   "***)"}]}]], "Input",
+ CellChangeTimes->{{3.781270845805767*^9, 3.7812709369787893`*^9}, {
+  3.7812709736178355`*^9, 3.781270975689722*^9}, {3.781271019377921*^9, 
+  3.7812711363868136`*^9}, {3.801513957934329*^9, 3.801513959538329*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"b81a183d-280c-497a-aa22-de8006984029"],
+
+Cell[BoxData[
+ RowBox[{"nonSigRespROIs", "=", 
+  RowBox[{"Complement", "[", 
+   RowBox[{
+    RowBox[{"Range", "[", "numROIs", "]"}], ",", "sigRespROIs"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.7812712423718295`*^9, 3.7812713163474655`*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"37142a7b-4c98-49c9-bff9-1d2c0793bbc0"],
+
+Cell[BoxData[
+ RowBox[{"noGoodROIs", "=", 
+  RowBox[{"DeleteDuplicates", "[", 
+   RowBox[{"Join", "[", 
+    RowBox[{"nonSigRespROIs", ",", "nonUseROIs"}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7812713261954255`*^9, 3.7812713615945296`*^9}, {
+   3.793716157601511*^9, 3.793716166493816*^9}, 3.887790719112924*^9, 
+   3.8879615208146453`*^9},
+ CellLabel->"In[15]:=",ExpressionUUID->"1bfc9fa6-f432-4702-aa07-64ee1ecb8bcc"],
+
+Cell[BoxData[
+ RowBox[{"usefulROIs", "=", 
+  RowBox[{"Complement", "[", 
+   RowBox[{
+    RowBox[{"Range", "[", "numROIs", "]"}], ",", "noGoodROIs"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.793716657188416*^9, 3.793716675144468*^9}},
+ CellLabel->"In[16]:=",ExpressionUUID->"43571f60-8be1-42f3-b6cd-ecdbc4b43c1f"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"**", "**", "For"}], " ", "each", " ", "ROI", " ", "picked", " ", 
+    "for", " ", "the", " ", "session"}], ",", " ", 
+   RowBox[{"upload", " ", "the", " ", "average", " ", "evoked", " ", 
+    RowBox[{"dF", "/", "F"}], " ", "values"}]}], "*******)"}]], "Input",
+ CellChangeTimes->{{3.771766547746475*^9, 3.771766597849903*^9}, {
+  3.7753239349049845`*^9, 3.7753239489222145`*^9}, {3.77532928847725*^9, 
+  3.775329305790928*^9}, {3.7754703346359816`*^9, 3.775470342603194*^9}},
+ CellLabel->"In[17]:=",ExpressionUUID->"17c1149c-5455-4298-9fac-33aea3eee035"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Evaluate", "@", 
+       RowBox[{"ToExpression", "[", 
+        RowBox[{"StringJoin", "[", 
+         RowBox[{"\"\<dFFAvgBef\>\"", ",", 
+          RowBox[{"ToString", "[", "n", "]"}]}], "]"}], "]"}]}], "=", 
+      RowBox[{"ToExpression", "/@", 
+       RowBox[{"Import", "[", 
+        RowBox[{
+         RowBox[{"StringJoin", "[", 
+          RowBox[{
+          "\"\<S:/Imaging/Garrett/FMB208_2PRig/\>\"", ",", "date", ",", 
+           "\"\</\>\"", ",", "mouse", ",", "\"\</Session\>\"", ",", 
+           RowBox[{"ToString", "[", "sessionNumBef", "]"}], ",", 
+           "\"\</VisStimResults/\>\"", ",", "date", ",", "\"\<_\>\"", ",", 
+           "mouse", ",", "\"\<_Session\>\"", ",", 
+           RowBox[{"ToString", "[", "sessionNumBef", "]"}], ",", "\"\<_\>\"", 
+           ",", "\"\<overallVisDFFZScored_ROI\>\"", ",", 
+           RowBox[{"ToString", "[", "n", "]"}], ",", "\"\<.txt\>\""}], "]"}], 
+         ",", "\"\<List\>\""}], "]"}]}]}], ";"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"n", ",", "1", ",", "numROIs"}], "}"}]}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.7652787755938396`*^9, 3.7652787998196077`*^9}, 
+   3.7652789594028416`*^9, {3.7652790507615685`*^9, 3.765279193081073*^9}, {
+   3.7652793733891816`*^9, 3.7652793781724443`*^9}, {3.7652795307241893`*^9, 
+   3.7652795588250327`*^9}, {3.7652797143928175`*^9, 
+   3.7652797167046475`*^9}, {3.76536643654502*^9, 3.765366587710597*^9}, {
+   3.7653667171601844`*^9, 3.7653667516778803`*^9}, {3.76536684340189*^9, 
+   3.7653669440646753`*^9}, 3.7653671746014585`*^9, {3.7653672285187984`*^9, 
+   3.7653672315048265`*^9}, {3.7717664663299017`*^9, 
+   3.7717664815125637`*^9}, {3.7753223257199154`*^9, 
+   3.7753223342655396`*^9}, {3.7753224204516954`*^9, 
+   3.7753224267521305`*^9}, {3.7754703685577097`*^9, 3.7754703746434317`*^9}, 
+   3.775472598788308*^9, {3.7754726506109295`*^9, 3.77547265127415*^9}, 
+   3.7936332573220105`*^9, {3.79371606930132*^9, 3.7937160718336115`*^9}, 
+   3.8014750457992897`*^9, {3.8043318407336893`*^9, 3.804331843531048*^9}, 
+   3.853257638677619*^9},
+ CellLabel->"In[18]:=",ExpressionUUID->"00664f4e-a982-4dea-95be-531a471e836f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Evaluate", "@", 
+       RowBox[{"ToExpression", "[", 
+        RowBox[{"StringJoin", "[", 
+         RowBox[{"\"\<dFFAvgAft\>\"", ",", 
+          RowBox[{"ToString", "[", "n", "]"}]}], "]"}], "]"}]}], "=", 
+      RowBox[{"ToExpression", "/@", 
+       RowBox[{"Import", "[", 
+        RowBox[{
+         RowBox[{"StringJoin", "[", 
+          RowBox[{
+          "\"\<S:/Imaging/Garrett/FMB208_2PRig/\>\"", ",", "date", ",", 
+           "\"\</\>\"", ",", "mouse", ",", "\"\</Session\>\"", ",", 
+           RowBox[{"ToString", "[", "sessionNumAft", "]"}], ",", 
+           "\"\</VisStimResults/\>\"", ",", "date", ",", "\"\<_\>\"", ",", 
+           "mouse", ",", "\"\<_Session\>\"", ",", 
+           RowBox[{"ToString", "[", "sessionNumAft", "]"}], ",", "\"\<_\>\"", 
+           ",", "\"\<overallVisDFFZScored_ROI\>\"", ",", 
+           RowBox[{"ToString", "[", "n", "]"}], ",", "\"\<.txt\>\""}], "]"}], 
+         ",", "\"\<List\>\""}], "]"}]}]}], ";"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"n", ",", "1", ",", "numROIs"}], "}"}]}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.7652787755938396`*^9, 3.7652787998196077`*^9}, 
+   3.7652789594028416`*^9, {3.7652790507615685`*^9, 3.765279193081073*^9}, {
+   3.7652793733891816`*^9, 3.7652793781724443`*^9}, {3.7652795307241893`*^9, 
+   3.7652795588250327`*^9}, {3.7652797143928175`*^9, 
+   3.7652797167046475`*^9}, {3.76536643654502*^9, 3.765366587710597*^9}, {
+   3.7653667171601844`*^9, 3.7653667516778803`*^9}, {3.76536684340189*^9, 
+   3.7653669440646753`*^9}, 3.7653671746014585`*^9, {3.7653672285187984`*^9, 
+   3.7653672315048265`*^9}, {3.7717664663299017`*^9, 
+   3.7717665166020226`*^9}, {3.775322468967808*^9, 3.775322491833537*^9}, {
+   3.7754703802538*^9, 3.7754703819726076`*^9}, {3.7754726977016306`*^9, 
+   3.7754727111556787`*^9}, 3.793633260914381*^9, {3.7937160737904*^9, 
+   3.7937160762478476`*^9}, 3.8014750482984676`*^9, {3.80433184586771*^9, 
+   3.8043318475637684`*^9}, 3.853257641765893*^9},
+ CellLabel->"In[19]:=",ExpressionUUID->"f45ab4f3-c4fa-4649-84ca-3fc9f55aba4a"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"**", "Create"}], " ", "a", " ", "paired", " ", "before"}], "-", 
+   RowBox[{
+   "after", " ", "data", " ", "list", " ", "for", " ", "the", " ", "evoked", 
+    " ", 
+    RowBox[{"dF", "/", "F"}]}]}], "***)"}]], "Input",
+ CellChangeTimes->{{3.771770159544921*^9, 3.77177019855614*^9}, {
+  3.771770268081481*^9, 3.771770269492665*^9}, {3.7754727520114717`*^9, 
+  3.775472769114684*^9}},
+ CellLabel->"In[20]:=",ExpressionUUID->"7c803538-70fd-4545-af70-88f5d2b420ea"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"meanDFFpairs", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"ToExpression", "[", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"\"\<dFFAvgBef\>\"", ",", 
+            RowBox[{"ToString", "[", "n", "]"}]}], "]"}], "]"}], ")"}], "[", 
+        RowBox[{"[", "1", "]"}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"ToExpression", "[", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"\"\<dFFAvgAft\>\"", ",", 
+            RowBox[{"ToString", "[", "n", "]"}]}], "]"}], "]"}], ")"}], "[", 
+        RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"n", ",", "usefulROIs"}], "}"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7717702736718903`*^9, 3.7717703150684266`*^9}, {
+   3.7717703466112986`*^9, 3.771770352659852*^9}, {3.771770398990649*^9, 
+   3.771770412445153*^9}, {3.7719390203422813`*^9, 3.7719390342252417`*^9}, {
+   3.775472800244314*^9, 3.7754728216255665`*^9}, {3.7754746428308315`*^9, 
+   3.7754746807149467`*^9}, 3.7754747247865067`*^9, 3.7812715158515453`*^9, 
+   3.793633269234165*^9, {3.7937160817421837`*^9, 3.7937160844799995`*^9}, {
+   3.7937173465305223`*^9, 3.7937173534161406`*^9}},
+ CellLabel->"In[21]:=",ExpressionUUID->"603fa3ec-2188-4f4c-965d-1e717b397812"],
+
+Cell[BoxData[
+ RowBox[{"(*", "**", "*****)"}]], "Input",
+ CellChangeTimes->{{3.85327875438673*^9, 3.853278757786743*^9}},
+ CellLabel->"In[24]:=",ExpressionUUID->"7561504f-c562-467e-80a7-803213c639bf"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+    RowBox[{"StringJoin", "[", 
+     RowBox[{
+     "\"\<S:/Imaging/Garrett/FMB208_2PRig/\>\"", ",", "date", ",", 
+      "\"\</\>\"", ",", "mouse", ",", "\"\</PairedAnalysis/\>\"", ",", "date",
+       ",", "\"\<_\>\"", ",", "mouse", ",", "\"\<_visRespPaired.txt\>\""}], 
+     "]"}], ",", "meanDFFpairs"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.8532787178982067`*^9, 3.8532787692883625`*^9}},
+ CellLabel->"In[25]:=",ExpressionUUID->"3abc9a5b-0538-4cbd-a0c5-783d52662efe"]
+},
+WindowSize->{1087, 903},
+WindowMargins->{{Automatic, 234}, {Automatic, 97}},
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 277, 6, 28, "Input",ExpressionUUID->"61d12fd3-1fe9-4863-b29f-fad81a941d31"],
+Cell[838, 28, 1490, 22, 28, "Input",ExpressionUUID->"84f2c49a-8a6c-4328-a49d-883d3b9d454e"],
+Cell[2331, 52, 690, 15, 28, "Input",ExpressionUUID->"c8df20e0-814b-4c8b-bcf6-5ea15b70997d"],
+Cell[3024, 69, 483, 9, 28, "Input",ExpressionUUID->"7f1c4157-1c47-44c8-a9a0-e2ef31423bfe"],
+Cell[3510, 80, 483, 9, 28, "Input",ExpressionUUID->"c921c00d-0675-4746-be72-8e38b4050e1f"],
+Cell[3996, 91, 401, 8, 28, "Input",ExpressionUUID->"c69edd2f-1f6b-4b9e-88ff-ac2c97ecddb6"],
+Cell[4400, 101, 864, 18, 86, "Input",ExpressionUUID->"97e3bbac-073e-4f84-86d8-612554e819e9"],
+Cell[5267, 121, 1371, 27, 86, "Input",ExpressionUUID->"92deb6ec-c98d-41b5-9fb2-36ae64dd1bc8"],
+Cell[6641, 150, 1144, 21, 48, "Input",ExpressionUUID->"16cf77ff-fb2d-448b-8671-5db68928454c"],
+Cell[7788, 173, 971, 19, 48, "Input",ExpressionUUID->"a3737ef4-e99b-498b-a7d7-3c804a8684d6"],
+Cell[8762, 194, 1218, 29, 48, "Input",ExpressionUUID->"b81a183d-280c-497a-aa22-de8006984029"],
+Cell[9983, 225, 326, 7, 28, "Input",ExpressionUUID->"37142a7b-4c98-49c9-bff9-1d2c0793bbc0"],
+Cell[10312, 234, 429, 8, 28, "Input",ExpressionUUID->"1bfc9fa6-f432-4702-aa07-64ee1ecb8bcc"],
+Cell[10744, 244, 317, 7, 28, "Input",ExpressionUUID->"43571f60-8be1-42f3-b6cd-ecdbc4b43c1f"],
+Cell[11064, 253, 620, 11, 28, "Input",ExpressionUUID->"17c1149c-5455-4298-9fac-33aea3eee035"],
+Cell[11687, 266, 2229, 42, 105, "Input",ExpressionUUID->"00664f4e-a982-4dea-95be-531a471e836f"],
+Cell[13919, 310, 2140, 40, 105, "Input",ExpressionUUID->"f45ab4f3-c4fa-4649-84ca-3fc9f55aba4a"],
+Cell[16062, 352, 528, 12, 28, "Input",ExpressionUUID->"7c803538-70fd-4545-af70-88f5d2b420ea"],
+Cell[16593, 366, 1386, 30, 67, "Input",ExpressionUUID->"603fa3ec-2188-4f4c-965d-1e717b397812"],
+Cell[17982, 398, 200, 3, 28, "Input",ExpressionUUID->"7561504f-c562-467e-80a7-803213c639bf"],
+Cell[18185, 403, 539, 11, 48, "Input",ExpressionUUID->"3abc9a5b-0538-4cbd-a0c5-783d52662efe"]
+}
+]
+*)
+
