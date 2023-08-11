@@ -1,0 +1,69 @@
+%% automates Ca extraction over all tif files in folder
+
+%% run roigui for first file in list, pick ROIs, define input and output directories 
+clear all
+
+%define some parameters
+mouse_num='kf015';
+day='001';
+fov='001';    
+fsample=28.34;  %sampling frequency 
+
+file_tag=[mouse_num,'_',day,'_',fov];  %change this depending on your naming convention
+
+main_input_dir=%'/media/katie/My Book/Katie/moco/'; %'~/Projects/ErBB4/analysis/moco/';  %your input directory
+main_input_dir_red=%'/media/katie/My Book/208_2P_data/Katie/';   %your input directory for red channel
+main_output_dir='~/Projects/ErbB4/analysis/ROIs_new_recordings/';  %your output directory
+    if ~exist(main_output_dir,'dir'), mkdir(main_output_dir), end 
+
+%ROI_main_input_dir='~/Projects/ErbB4/analysis/ROIs/';  %your input directory
+
+
+file_predir=fullfile(mouse_num,[mouse_num,'_',day]);
+input_dir=fullfile(main_input_dir,file_tag); %fullfile(main_input_dir,file_predir,file_tag);
+input_dir_red=fullfile(main_input_dir_red,file_tag); 
+
+output_dir=fullfile(main_output_dir,file_tag);
+ROIlist_dir=fullfile(main_input_dir,file_tag);
+if (~exist(output_dir,'dir')) mkdir(output_dir); end
+
+D=dir([input_dir,'/*.tif']);
+last_file_ind = length(D(not([D.isdir])));  %number of tif files in input_dir
+
+input_filename=[file_tag,'_001_moco40_ref1-200.tif'];   %change this depending on the naming convention of your motion corrected files
+%input_filename_red=[file_tag,'_red.tif'];   %change this depending on the naming convention of your motion corrected files
+%input_red=fullfile(input_dir_red,input_filename_red);
+input=fullfile(input_dir,input_filename);
+
+%% if using new ROI list
+Fcorr=32768;
+im=readTifStack(input);
+%im_red=readTifStack(input_red);
+im=im-Fcorr; %im_red=im_red-Fcorr;
+roigui(im);  %roigui(im_red); 
+%% run Ca extraction for first file in list, and refine ROI choices
+f_traces_gui_v3(im,ROI_list,fsample);  
+
+%% using ROI list from above, runs Ca extraction over the rest of the .tif files in input_dir
+%load([ROIlist_dir,'/ROI_list.mat']);
+% Fcorr=32768;
+% numcells=length(ROI_list);
+% for cell=1:numcells
+%     ROI_list(cell).F_neuropilsubtracted(:)=ROI_list(cell).F_neuropilsubtracted(:)-Fcorr;
+%     ROI_list(cell).fmean(:)=ROI_list(cell).fmean(:)-Fcorr;
+%     ROI_list(cell).fmean_fill(:)=ROI_list(cell).fmean_fill(:)-Fcorr;
+%     ROI_list(cell).neuropil_fmean(:)=ROI_list(cell).neuropil_fmean(:)-Fcorr;
+% end
+
+for fileind=1:last_file_ind-1
+    input_filename=[file_tag,'_',sprintf('%03d',fileind),'_moco40_ref1-200.tif'];   %change this depending on the naming convention of your motion corrected files
+    input=fullfile(input_dir,input_filename);
+    output_filename=[input_filename(1:end-4),'_Fsub'];
+    im=readTifStack(input);
+    im=im-Fcorr;
+    roinogui(im,ROI_list);
+    f_traces_nogui_v3(im,ROI_list,fsample,output_filename,output_dir);
+end
+save([output_dir,'/ROI_list'],'ROI_list');
+
+%%
